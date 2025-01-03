@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background (optional) -->
+  <rect width="100" height="100" fill="transparent"/>
+  
+  <!-- Star with gradient fill -->
+  <defs>
+    <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="100%" style="stop-color:#FFA500"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Star path using polygon -->
+  <path d="M50 5
+           L61.2 39.5
+           L97.6 39.5
+           L68.2 60.5
+           L79.4 95
+           L50 74
+           L20.6 95
+           L31.8 60.5
+           L2.4 39.5
+           L38.8 39.5
+           Z"
+        fill="url(#starGradient)"
+        stroke="#FF8C00"
+        stroke-width="1"/>
+        
+  <!-- Inner glow effect -->
+  <circle cx="40" cy="35" r="3" fill="#FFFFFF" opacity="0.6"/>
+</svg>
