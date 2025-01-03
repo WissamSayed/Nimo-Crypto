@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import classes from "../Assets/Styles/Header.module.css";
+import classes from "../assets/styles/Header.module.css";
 import { Grid, Modal, Slide, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
