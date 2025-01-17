@@ -4,26 +4,17 @@ import PropTypes from "prop-types";
 export const Store = createContext();
 
 const initialState = {
-  // AllCoins: localStorage.getItem("allCoins")
-  //   ? JSON.parse(localStorage.getItem("allCoins"))
-  //   : [],
-  CurrentCurrency: localStorage.getItem("currentCurrency")
-    ? JSON.parse(localStorage.getItem("currentCurrency"))
+  PinnedCurrency: localStorage.getItem("PinnedCurrency")
+    ? JSON.parse(localStorage.getItem("PinnedCurrency"))
     : "",
 };
 
 function reducer(state, action) {
   switch (action.type) {
-    case "ALL_COINS":
+    case "Pinned_CURRENCY":
       return {
         ...state,
-        AllCoins: action.payload,
-      };
-
-    case "CURRENT_CURRENCY":
-      return {
-        ...state,
-        CurrentCurrency: action.payload,
+        PinnedCurrency: action.payload,
       };
 
     default:

@@ -26,7 +26,12 @@ import {
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
-const CryptoTable = ({ allCoins, coinsParam, setCoinsParam }) => {
+const CryptoTable = ({
+  allCoins,
+  coinsParam,
+  setCoinsParam,
+  togglePinnedStatus,
+}) => {
   const formatNumber = (num) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -123,7 +128,21 @@ const CryptoTable = ({ allCoins, coinsParam, setCoinsParam }) => {
                 {allCoins?.map((crypto) => (
                   <TableRow key={crypto.id} hover fontSize="5px">
                     <TableCell>
-                      <Star width="16px" />
+                      <Grid
+                        onClick={() => togglePinnedStatus(crypto.id)}
+                        sx={{ color: crypto.pinned ? "gold" : "black" }}
+                      >
+                        <Star
+                          width="16px"
+                          sx={{
+                            transition: "color 0.3s ease", // Smooth transition for color change
+                            "&:hover": {
+                              backgroundColor: "rgba(0, 0, 0, 0.1)", // Hover effect on Grid
+                              cursor: "pointer",
+                            },
+                          }}
+                        />
+                      </Grid>
                     </TableCell>
                     <TableCell>
                       <Grid>{crypto.market_cap_rank} </Grid>

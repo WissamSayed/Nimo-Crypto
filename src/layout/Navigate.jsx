@@ -1,21 +1,24 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
-// import Footer from "./Footer";
-import Header from "./Header";
 import { Stack } from "@mui/material";
-import HomeScreen from "../screens/HomeScreen";
-import CoinScreen from "../screens/CoinScreen";
+import { Suspense, lazy } from "react";
+import Header from "./Header";
 import Footer from "./Footer";
+
+// Lazy load route components
+const HomeScreen = lazy(() => import("../screens/HomeScreen"));
+const CoinScreen = lazy(() => import("../screens/CoinScreen"));
 
 const Navigate = () => {
   return (
     <BrowserRouter>
       <Header />
       <Stack direction="row">
-        <Routes>
-          <Route path="/" element={<HomeScreen />} />
-          <Route path="/coin/:id" element={<CoinScreen />} />
-        </Routes>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<HomeScreen />} />
+            <Route path="/coin/:id" element={<CoinScreen />} />
+          </Routes>
+        </Suspense>
       </Stack>
       <Footer />
     </BrowserRouter>
